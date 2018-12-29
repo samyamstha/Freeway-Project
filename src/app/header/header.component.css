@@ -1,0 +1,32 @@
+.blog-header {
+    line-height: 1;
+    border-bottom: 1px solid #e5e5e5;
+  }
+  
+  .blog-header-logo {
+    /* font-family: "Playfair Display", Georgia, "Times New Roman", serif; */
+    font-family: 'Sedgwick Ave', cursive;
+    /* font-family: 'Kumar One Outline', cursive; */
+
+    font-size: 2.25rem;
+  }
+  
+  .blog-header-logo:hover {
+    text-decoration: none;
+  }
+
+  .vertical-center {
+    min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+    min-height: 100vh; /* These two lines are counted as one :-)       */
+  
+    display: flex;
+    align-items: center;
+  }
+
+  .ng-valid[required], .ng-valid.required  {
+    border-bottom: 3px solid #42A948; /* green */
+  }
+  
+  .ng-invalid:not(form)  {
+    border-bottom: 3px solid #a94442; /* red */
+  }

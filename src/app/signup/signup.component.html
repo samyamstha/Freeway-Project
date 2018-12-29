@@ -1,0 +1,61 @@
+<div class="card flex-md-row mb-4 shadow-sm h-md-250  mt-5" id="sign-up-page">
+
+
+  <form class="form-signup" #userForm="ngForm" (ngSubmit)="onSubmit()">
+    <!-- <img class="mb-4" src="" alt="" width="72" height="72"> -->
+    <div class="form-group">
+
+      <h1 class="h3 mb-3 font-weight-normal text-center">Sign Up</h1>
+
+      <label for="firstName" class="sr-only">First Name</label>
+      <input type="text" id="firstName" class="form-control form-control-sm" placeholder="First Name" required autofocus [(ngModel)]="firstName"
+        name="firstName" #fname="ngModel">
+      <!-- the [(ngModel)] variable name and #fname (local ref variable) should not be named same -->
+      <div [hidden]="fname.valid || fname.pristine" class="alert alert-danger">
+        First Name is required
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="lastName" class="sr-only">Last Name</label>
+      <input type="text" id="lastName" class="form-control" placeholder="Last Name" [(ngModel)]="lastName" name="lastname" required
+        #lname="ngModel">
+      <div [hidden]="lname.valid || lname.pristine" class="alert alert-danger">
+        Last Name is required
+      </div>
+    </div>
+
+
+    <div class="form-group">
+      <label for="inputEmail" class="sr-only">Email address</label>
+      <input type="email" id="inputEmail" class="form-control form-control-sm" [(ngModel)]="email" placeholder="Email address"
+        required [pattern] = 'emailRegex' autofocus name="email" #emailID="ngModel">
+      <div [hidden]="emailID.valid || emailID.pristine" class="alert alert-danger">
+        Email is required
+      </div>
+      <div *ngIf = "emailID.dirty && emailID.errors?.pattern" class="alert alert-danger">
+        Invalid email address
+      </div>
+    </div>
+
+
+    <div class="form-group">
+      <label for="inputPassword" class="sr-only">Password</label>
+      <input type="password" id="inputPassword" class="form-control" placeholder="Password" 
+      [(ngModel)]="password" name="password"
+        required #pass="ngModel" minlength="8">
+      <div [hidden]="pass.valid || pass.pristine" class="alert alert-danger">
+        Password is required
+      </div>
+      <div *ngIf = "pass.dirty && pass.errors?.minlength" class="alert alert-danger">
+          Password should be atleast 8 characters
+      </div>
+    </div>   
+
+
+
+    <button class="btn btn-lg btn-outline-secondary btn-block" [ngClass]="{
+      'btn-outline-success': userForm.form.valid
+    }" type="submit" [disabled]="!userForm.form.valid">Sign Up</button>
+  </form>
+</div>
