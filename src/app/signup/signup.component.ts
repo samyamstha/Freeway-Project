@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Users } from '../users'
+import { User } from '../_models/user'
 
 @Component({
   selector: 'app-signup',
@@ -10,7 +10,7 @@ import { Users } from '../users'
 export class SignupComponent implements OnInit {
 
   private submitted : boolean = false;
-  private usersObj : Users;
+  private usersObj : User;
   public firstName : String;
   public lastName : String;
   public email : String;
@@ -26,7 +26,7 @@ export class SignupComponent implements OnInit {
   onSubmit(){
     this.submitted = true;
 
-    this.usersObj = new Users(this.firstName, this.lastName, this.email, this.password);
+    this.usersObj = new User(this.firstName, this.lastName, this.email, this.password);
   }
 
   validatePassword() {
